@@ -12,8 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('amenity_post', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->unsignedBigInteger('amenity_id');
+            $table->unsignedBigInteger('post_id');
+
+
+            $table->foreign('amenity_id')->references('id')->on('amenities');
+            $table->foreign('post_id')->references('id')->on('amenities');
         });
     }
 
