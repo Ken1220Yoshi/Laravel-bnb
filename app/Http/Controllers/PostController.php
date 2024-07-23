@@ -7,12 +7,19 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+
+    private $post;
+
+    public function __construct(Post $post){
+        $this->post = $post;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
+
     }
 
     /**
@@ -21,6 +28,7 @@ class PostController extends Controller
     public function create()
     {
         //
+
     }
 
     /**
@@ -29,6 +37,32 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $this->post->title = $request->title;
+        $this->post->price = $request->price;
+        $this->post->user_id = auth()->user()->id();
+        $this->post->description = $request->description;
+        $this->post->save();
+
+        $amenity_post = [];
+
+        foreach($request->amenity as $amenity_id):
+            $amenity_post[] = ["amenity_post" => $amenity_post];
+        endforeach;
+
+        $this->post->amenityPost()->createMany($amenity_post);
+
+        // imageテーブルに保存
+        $images = [];
+        if($request->hasFile('images')){
+            foreach($request->file('images') as $image):
+                $image = 'data:image/'.$image->extension().';base64,'.base64_encode(file_get_contents($image));
+                $images[] = ['image' => $image];
+            endforeach;
+
+            $this->post->image()->createMany($images);
+        }
+
+        return redirect()->route('index');
     }
 
     /**
