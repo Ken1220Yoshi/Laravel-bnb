@@ -1,0 +1,23 @@
+.image-home {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  display: block;
+}
+
+.image-container {
+  position: relative;
+  border: black;
+  height: 300px;
+  width: 100%;
+}
+
+.icon-md {
+  position: absolute;
+  top: 8%;
+  left: 88%;
+  color: white; /* アイコンの中身の色 */
+  font-size: 1.5rem;
+     
+}
