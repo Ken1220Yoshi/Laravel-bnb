@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,7 +20,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// <<<<<<< HEAD
-// >>>>>>> 163b810af1f52849a8722cafb56e86e445a3b770
-// =======
-// >>>>>>> 163b810af1f52849a8722cafb56e86e445a3b770
+
+
+
+Route::group(["middleware" => "auth"],function(){
+    Route::resource('post',PostController::class);
+});
+
