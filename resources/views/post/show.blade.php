@@ -42,18 +42,35 @@
                     <hr>
 
                     <div class="post_introduction">
-                      post_introduction
+                        post_introduction
                     </div>
 
                     <hr>
                 </div>
                 <div class="col-4">
-                  <div class="card">
-                    <div class="card-body">
-                      price
+                    <div class="card">
+                        <div class="card-body">
+                            <h3>Price/泊</h3>
+                            <form action="" method="">
+                                <div class="">
+                                    <label for="guest" class="form-label fw-bold">人数</label>
+                                    <input type="number" name="guest" class="form-control ">
+                                </div>
+
+                                <input type="submit" class="btn btn-warning" value="予約する">
+                                <span>まだ請求されません</span>
+
+                            </form>
+                        </div>
                     </div>
-                  </div>
                 </div>
+            </div>
+
+            <div class="post_aminity">
+              <h2>提供されるアミニティ・設備</h2>
+              <div class="post_aminity-content d-grid">
+                
+              </div>
             </div>
         </div>
 
