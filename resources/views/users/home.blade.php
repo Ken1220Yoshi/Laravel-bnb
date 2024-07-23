@@ -11,6 +11,12 @@
 
     <div class="col-3" class="mx-auto">
       <a href="{{route('post.show', $post)}}" class="text-decoration-none text-dark rounded">
+
+        <div class="image-container">
+          
+          <img src="{{$post->image}}" alt="" class="image-home">
+          <i class="fa-solid fa-circle-chevron-right icon-img"></i>
+
         <div id="carouselExampleIndicators" class="carousel slide image-container">
           <div class="carousel-inner">
             @foreach ($post->images as $image )
@@ -29,6 +35,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
           </button>
+
           <form action="" method="post" class="like-form">
             @csrf
             <button type="submit" class="btn btn-none">
