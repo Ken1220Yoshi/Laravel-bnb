@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\Amenity;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -43,7 +44,7 @@ class PostController extends Controller
         //
         $this->post->title = $request->title;
         $this->post->price = $request->price;
-        $this->post->user_id = auth()->user()->id();
+        $this->post->user_id = Auth::id();
         $this->post->description = $request->description;
         $this->post->save();
 
@@ -86,6 +87,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return view('post.edit')->with('post',$post);
     }
 
     /**
