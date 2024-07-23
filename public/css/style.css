@@ -15,15 +15,32 @@
 
 .icon-md {
   color: white; /* アイコンの中身の色 */
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 .like-form {
   position: absolute;
-  top: 6%;
-  left: 81%;
+  top: 4%;
+  left: 83%;
 }
 
 .icon-sm {
   font-size: 2rem;
+}
+
+.search-box {
+  width: 50%;
+}
+
+.icon-img {
+  position: absolute;
+  top: 50%;
+  left: 84%;
+  font-size: 2.5rem;
+  color: white;
+  display: none;
+}
+
+a:hover .icon-img {
+  display: inline-block;
 }

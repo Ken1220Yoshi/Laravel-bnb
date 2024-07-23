@@ -44,7 +44,7 @@
 
                     </ul>
 
-                    <form class="d-flex mx-auto">
+                    <form class="d-flex mx-auto search-box">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
@@ -73,7 +73,7 @@
 
 
                         <li class="nav-item">
-                            <a href="" class="nav-link">
+                            <a href="{{route('home')}}" class="nav-link">
                                 <i class="fa-solid fa-home icon-sm"></i>
                             </a>
                         </li>
@@ -84,8 +84,12 @@
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
+                            <a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            @if (Auth::user()->avatar)
+                                <img src="{{Auth::user()->avatar}}" alt="#" class="rounded-circle avatar-sm">
+                                @else
+                                <i class="fa-solid fa-circle-user icon-sm"></i>
+                                @endif
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
