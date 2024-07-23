@@ -10,7 +10,7 @@
     
   
     <div class="col-3" class="mx-auto">
-      <a href="" class="text-decoration-none text-dark rounded">
+      <a href="{{route('post.show', $post)}}" class="text-decoration-none text-dark rounded">
         <div class="image-container">
           <img src="{{$post->image}}" alt="" class="image-home">
           <i class="fa-solid fa-circle-chevron-right icon-img"></i>
