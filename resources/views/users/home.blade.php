@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-<div class="container">
+<div class="container-fluid px-5">
   <div class="row">
     <div class="col" class="mx-auto">
       <a href="" class="text-decoration-none text-dark rounded">
@@ -12,11 +12,11 @@
           <form action="" method="post" class="like-form">
             @csrf
             <button type="submit" class="btn btn-none">
-            <i class="fa-regular fa-heart icon-md"></i>
-          </button>
+              <i class="fa-regular fa-heart icon-md"></i>
+            </button>
           </form>
-          
-          
+
+
         </div>
 
 

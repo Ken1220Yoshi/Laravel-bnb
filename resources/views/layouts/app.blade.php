@@ -31,12 +31,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                    <div class="container-fluid w-50">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
+                    
+                        
+                   
                 
 
 
@@ -46,6 +43,11 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
+
+                    <form class="d-flex mx-auto">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -62,7 +64,25 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
+
+                        
                         @else
+                        
+
+                    
+
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="fa-solid fa-home icon-sm"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('post.create')}}" class="nav-link">
+                                <i class="fa-solid fa-circle-plus icon-sm"></i>
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
