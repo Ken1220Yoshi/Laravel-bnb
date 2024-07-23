@@ -30,7 +30,6 @@ class PostController extends Controller
     {
         //
         $all_amenities = Amenity::latest()->get();
-
         return view('post.create')->with('all_amenities',$all_amenities);
 
     }
