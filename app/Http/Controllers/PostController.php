@@ -68,7 +68,7 @@ class PostController extends Controller
             $this->post->image()->createMany($images);
         }
 
-        return redirect()->route('index');
+        return redirect()->route('home');
     }
 
     /**
