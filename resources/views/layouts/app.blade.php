@@ -64,7 +64,25 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                         @endif
+
+                        
                         @else
+                        
+
+                    
+
+
+                        <li class="nav-item">
+                            <a href="" class="nav-link">
+                                <i class="fa-solid fa-home icon-sm"></i>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="{{route('post.create')}}" class="nav-link">
+                                <i class="fa-solid fa-circle-plus icon-sm"></i>
+                            </a>
+                        </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }}
