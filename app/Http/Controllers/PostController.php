@@ -28,6 +28,7 @@ class PostController extends Controller
     public function create()
     {
         //
+        return view('post.create');
 
     }
 
@@ -46,7 +47,7 @@ class PostController extends Controller
         $amenity_post = [];
 
         foreach($request->amenity as $amenity_id):
-            $amenity_post[] = ["amenity_post" => $amenity_post];
+            $amenity_post[] = ["amenity_id" => $amenity_id];
         endforeach;
 
         $this->post->amenityPost()->createMany($amenity_post);
