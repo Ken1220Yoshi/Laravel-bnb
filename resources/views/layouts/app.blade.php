@@ -31,12 +31,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                    <div class="container-fluid w-50">
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-outline-success" type="submit">Search</button>
-                        </form>
-                    </div>
+                    
+                        
+                   
                 
 
 
@@ -46,6 +43,11 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
+
+                    <form class="d-flex mx-auto">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success" type="submit">Search</button>
+                        </form>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">

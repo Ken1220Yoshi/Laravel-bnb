@@ -9,20 +9,17 @@
 .image-container {
   position: relative;
   border: black;
-  height: 300px;
+  height: 100%;
   width: 100%;
 }
 
 .icon-md {
-  
   color: white; /* アイコンの中身の色 */
   font-size: 1.5rem;
-     
 }
 
 .like-form {
-
   position: absolute;
-  top: 8%;
-  left: 88%;
+  top: 6%;
+  left: 81%;
 }
