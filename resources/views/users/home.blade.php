@@ -6,14 +6,29 @@
 <div class="container-fluid px-5">
   <div class="row">
 
-  @foreach ($all_post as $post )
-    
-  
+    @foreach ($all_post as $post )
+
+
     <div class="col-3" class="mx-auto">
       <a href="{{route('post.show', $post)}}" class="text-decoration-none text-dark rounded">
-        <div class="image-container">
-          <img src="{{$post->image}}" alt="" class="image-home">
-          <i class="fa-solid fa-circle-chevron-right icon-img"></i>
+        <div id="carouselExampleIndicators" class="carousel slide image-container">
+          <div class="carousel-inner">
+            @foreach ($post->images as $image )
+            <div class="carousel-item active image-container">
+              <img src="{{$image->image}}" class="d-block w-100 image-home " alt="...">
+            </div>
+            @endforeach
+            
+            
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
           <form action="" method="post" class="like-form">
             @csrf
             <button type="submit" class="btn btn-none">
@@ -21,6 +36,9 @@
             </button>
           </form>
         </div>
+
+          
+        
 
 
         <div class="row mt-3">
@@ -34,7 +52,7 @@
           date
         </p>
         <p class="h4">
-          {{$post->price}}
+          ${{$post->price}}
         </p>
       </a>
     </div>
