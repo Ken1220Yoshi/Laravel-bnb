@@ -22,7 +22,7 @@
 
         <div class="row mt-3">
           <div class="col-9">
-            <p class="h4 fw-bold">place</p>
+            <p class="h4 fw-bold">places</p>
           </div>
           <div class="col">rate</div>
         </div>
