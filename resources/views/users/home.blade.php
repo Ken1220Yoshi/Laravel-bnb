@@ -9,7 +9,14 @@
       <a href="" class="text-decoration-none text-dark rounded">
         <div class="image-container">
           <img src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="" class="image-home">
-          <i class="fa-regular  fa-heart icon-md"></i>
+          <form action="" method="post" class="like-form">
+            @csrf
+            <button type="submit" class="btn btn-none">
+            <i class="fa-regular fa-heart icon-md"></i>
+          </button>
+          </form>
+          
+          
         </div>
 
 

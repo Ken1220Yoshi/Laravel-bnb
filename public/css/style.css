@@ -14,10 +14,15 @@
 }
 
 .icon-md {
-  position: absolute;
-  top: 8%;
-  left: 88%;
+  
   color: white; /* アイコンの中身の色 */
   font-size: 1.5rem;
      
+}
+
+.like-form {
+
+  position: absolute;
+  top: 8%;
+  left: 88%;
 }
