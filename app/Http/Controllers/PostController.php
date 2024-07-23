@@ -22,6 +22,8 @@ class PostController extends Controller
     {
         //
 
+        return view('users.home');
+
     }
 
     /**

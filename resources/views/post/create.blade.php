@@ -28,7 +28,7 @@
                     @foreach ($all_amenities as $amenity)
                         <div class="form-check form-check-inline">
                             <input class="form-check-input" type="checkbox" id="aminity{{ $amenity->id }}"
-                                name="categories[]" value="{{ $amenity->id }}">
+                                name="amenity[]" value="{{ $amenity->id }}">
                             <label class="form-check-label" for="aminity{{ $amenity->id }}">{{ $amenity->name }}</label>
                         </div>
                     @endforeach
