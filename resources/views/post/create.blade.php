@@ -14,7 +14,12 @@
             <label for="title" class="form-label fw-bold">Title</label>
             <input type="text" name="title" class="form-control" placeholder="What's post title">
             </div>
+
           </div>
+
+
+        </div>
+        
 
         <div class="row mb-3">
           <div class="row mb-3">
