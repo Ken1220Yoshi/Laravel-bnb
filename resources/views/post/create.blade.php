@@ -12,7 +12,7 @@
                 <input type="text" name="title" class="form-control" placeholder="What's post title">
             </div>
         </div>
-
+        
         <div class="row mb-3">
             <div class="row mb-3">
                 <div class="col">
