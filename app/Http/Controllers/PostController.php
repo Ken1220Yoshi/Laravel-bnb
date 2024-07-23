@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Amenity;
 
 class PostController extends Controller
 {
@@ -28,7 +29,9 @@ class PostController extends Controller
     public function create()
     {
         //
-        return view('post.create');
+        $all_amenities = Amenity::latest()->get();
+
+        return view('post.create')->with('all_amenities',$all_amenities);
 
     }
 
@@ -72,6 +75,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        return view('post.show')->with('post',$post);
+
+
     }
 
     /**
