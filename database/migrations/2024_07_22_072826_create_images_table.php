@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->id();
+            
             $table->unsignedBigInteger('post_id');
+            $table->longText('image');
             
 
             $table->foreign('post_id')->references('id')->on('posts');
