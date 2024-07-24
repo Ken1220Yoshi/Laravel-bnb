@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('post_id');
 
 
-            $table->foreign('amenity_id')->references('id')->on('amenities');
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('amenity_id')->references('id')->on('amenities')->onDelete('cascade');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
         });
     }
 

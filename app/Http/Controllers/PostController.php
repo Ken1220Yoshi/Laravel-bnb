@@ -141,5 +141,12 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+        $post->delete();
+
+        return redirect()->route('home');
+    }
+
+    public function delete(Post $post){
+        return view('post.delete')->with('post',$post);
     }
 }

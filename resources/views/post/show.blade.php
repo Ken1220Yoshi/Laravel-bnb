@@ -17,7 +17,7 @@
             </div>
             <div class="col text-end mt-2">
                 <a href="{{route('post.edit',$post)}}" class="btn btn-warning text-light"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                <a href="" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>
+                <a href="{{route('post.delete',$post)}}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>
             </div>
         </div>
 
