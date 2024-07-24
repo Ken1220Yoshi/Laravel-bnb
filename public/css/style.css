@@ -2,20 +2,28 @@
   object-fit: cover;
   height: 100%;
   width: 100%;
+  /* padding-bottom: 100%; */
   border-radius: 5%;
   
 }
 
 .image-container {
   position: relative;
-  border: black;
   height: 24rem;  
+  /* padding-bottom: 100%; */
   width: 100%;
+  
 }
 
 .icon-md {
-  color: white; /* アイコンの中身の色 */
+  color: white;
   font-size: 2rem;
+}
+
+
+.icon-profile-md {
+  
+  font-size: 7rem;
 }
 
 .like-form {
@@ -39,4 +47,12 @@
   font-size: 2.5rem;
   color: white;
   display: none;
+}
+
+.profile-card {
+  border-radius: 20px;
+}
+
+.create-profile {
+  margin-top: 25vh;
 }

@@ -9,8 +9,8 @@
     @foreach ($all_post as $post )
 
 
-    <div class="col-3" class="mx-auto">
-      <a href="{{route('post.show', $post)}}" class="text-decoration-none text-dark rounded">
+    <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-5">
+      <a href="{{route('post.show', $post)}}" class="text-decoration-none text-dark">
 
         <div class="image-container">
           <div id="carouselExampleIndicators-{{$post->id}}" class="carousel slide image-container">
@@ -33,7 +33,7 @@
             <form action="" method="post" class="like-form">
               @csrf
               <button type="submit" class="btn btn-none">
-                <i class="fa-regular fa-heart icon-md"></i>
+                <i class="fa-regular fa-heart icon-md border-white"></i>
               </button>
             </form>
           </div>
@@ -56,7 +56,7 @@
           date
         </p>
         <p class="h4">
-          ${{$post->price}}
+          ${{$post->price}} / night
         </p>
       </a>
     </div>
