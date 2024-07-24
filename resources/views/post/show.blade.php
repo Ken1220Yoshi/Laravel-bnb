@@ -8,10 +8,10 @@
 
 
         <div class="post_header row mb-3">
-            <div class="col-auto">
+            <div class="col">
                 <h1 class="fw-bold">{{ $post->title }}</h1>
             </div>
-            <div class="col d-flex">
+            <div class="col-auto d-flex p-0">
                 <button class="btn border border-1"><i class="fa-solid fa-share"></i>シェア</button>
                 <button class="btn border border-1 ms-2"><i class="fa-regular fa-heart"></i>保存</button>
             </div>
@@ -21,14 +21,14 @@
                 <div class="row">
                     @foreach ($post->images as $index => $image)
                         @if ($index == 0)
-                            <div class="col-md-6 border border-danger" style="height: 440px; padding:10px;">
+                            <div class="col-md-6 border border-danger" style="height: 480px; padding:10px;">
                                 <img src="{{ $image->image }}" class="img-fluid rounded" alt="Post Image"
                                     style="height: 100%; width: 100%; object-fit:cover">
                             </div>
                             <div class="col-md-6 p-0">
                                 <div class="row">
                                 @elseif($index > 0 && $index < 5)
-                                    <div class="col-md-6" style="max-height:220px;  padding:10px;">
+                                    <div class="col-md-6" style="height:240px;  padding:10px;">
                                         <img src="{{ $image->image }}" class="img-fluid rounded" alt="Post Image"
                                             style="height: 100%; width: 100%; object-fit:cover">
                                     </div>
@@ -36,8 +36,8 @@
                     @endforeach
                 </div>
                 @if (count($post->images) > 5)
-                    <div class="text-center" style="position:absolute; right20px;">
-                        <a href="" class="btn border border-dark"><i class="fa-regular fa-images"></i> 全ての写真を表示</a>
+                    <div class="text-center" style="position:absolute; right:3%; bottom:6%;">
+                        <a href="" class="btn border border-dark bg-white"><i class="fa-regular fa-images"></i> 全ての写真を表示</a>
                     </div>
                 @endif
         </div>
@@ -85,8 +85,16 @@
                         <h3><span class="fw-bold">${{ $post->price }}</span>/泊</h3>
                         <form action="" method="">
                             <div class="mb-3">
+                              <div class="form-group">
+                                <label for="checkin">チェックイン日</label>
+                                <input type="date" class="form-control" id="checkin" name="checkin" placeholder="チェックイン日を選択してください">
+                            </div>
+                            <div class="form-group">
+                                <label for="checkout">チェックアウト日</label>
+                                <input type="date" class="form-control" id="checkout" name="checkout" placeholder="チェックアウト日を選択してください">
                                 <label for="guest" class="form-label fw-bold m-0">人数</label>
                                 <input type="number" name="guest" class="form-control ">
+                              </div>
                             </div>
 
                             <input type="submit" class="btn w-100 text-white" value="予約する"
@@ -101,7 +109,8 @@
         </div>
 
         <div class="post_aminity mt-5">
-            <h2>提供されるアミニティ・設備{{ $post->id }}</h2>
+          <hr>
+            <h2 class="mb-3">提供されるアミニティ・設備{{ $post->id }}</h2>
             <div class="row">
                 @if ($post->amenityPost->isNotEmpty())
                     @foreach ($post->amenityPost as $amenity_post)
