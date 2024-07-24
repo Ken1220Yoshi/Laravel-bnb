@@ -43,11 +43,13 @@
                     <ul class="navbar-nav me-auto">
 
                     </ul>
-
-                    <form class="d-flex mx-auto search-box">
+                    @if (Auth::check())
+                        <form class="d-flex mx-auto search-box">
                             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success" type="submit">Search</button>
                         </form>
+                    @endif
+                    
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
@@ -72,30 +74,28 @@
                     
 
 
-                        <li class="nav-item">
-                            <a href="{{route('home')}}" class="nav-link">
-                                <i class="fa-solid fa-home icon-sm"></i>
-                            </a>
-                        </li>
+                        
 
-                        <li class="nav-item">
-                            <a href="{{route('post.create')}}" class="nav-link">
-                                <i class="fa-solid fa-circle-plus icon-sm"></i>
+                        <li class="nav-item align-items-center">
+                            <a href="{{route('post.create')}}" class="nav-link pt-3">
+                                <p class="fw-bold h5  align-items-center">Switch to hosting</p>
                             </a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            
+                                <a id="navbarDropdown" class="nav-link" href="" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             @if (Auth::user()->avatar)
                                 <img src="{{Auth::user()->avatar}}" alt="#" class="rounded-circle avatar-sm">
                                 @else
                                 <i class="fa-solid fa-circle-user icon-sm"></i>
                                 @endif
                             </a>
+                        
+                            
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                                <a class="dropdown-item" href="" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                <a class="dropdown-item" href="{{route('user.show', Auth::user())}}">
                                     {{ __('Profile') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

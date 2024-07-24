@@ -8,4 +8,14 @@ use App\Models\User;
 class UserController extends Controller
 {
     //
+
+    private $user;
+
+    public function __construct(User $user){
+        $this->user = $user;
+    }
+
+    public function show(User $user){
+        return view('users.show')->with('user', $user);
+    }
 }
