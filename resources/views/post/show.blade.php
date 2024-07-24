@@ -15,6 +15,10 @@
                 <button class="btn border border-1"><i class="fa-solid fa-share"></i>シェア</button>
                 <button class="btn border border-1 ms-2"><i class="fa-regular fa-heart"></i>保存</button>
             </div>
+            <div class="col text-end mt-2">
+                <a href="{{route('post.edit',$post)}}" class="btn btn-warning text-light"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                <a href="" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>
+            </div>
         </div>
 
         <div class="post_image p-0 mb-4" >
