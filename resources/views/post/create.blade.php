@@ -6,7 +6,7 @@
 
 <div class="container">
 
-  
+
   <form action="{{route('post.store')}}" method="post" enctype="multipart/form-data">
     @csrf
         <div class="row mb-3">
@@ -19,11 +19,12 @@
 
 
         </div>
-        
+
 
         <div class="row mb-3">
           <div class="row mb-3">
                 <div class="col">
+
                     <label for="aminities" class="form-label fw-bold">Amenities</label><br>
                     @foreach ($all_amenities as $amenity)
                         <div class="form-check form-check-inline">
@@ -47,7 +48,7 @@
         </div>
 
 
-        
+
         <div class="row mb-3">
             <div class="col">
                 <label for="description" class="form-label fw-bold">Description</label>
@@ -66,7 +67,7 @@
           </div>
       </div>
 
-      
+
       <input type="submit" name="submit" value="Post" class="btn btn-primary w-25">
 
 

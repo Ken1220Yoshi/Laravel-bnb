@@ -11,7 +11,7 @@ class AmenityPost extends Model
 
     protected $table = "amenity_post";
 
-    protected $fillable = ['amenity_id','post_id'];
+    protected $guarded = [];
 
     public $timestamps = false;
 
