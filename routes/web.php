@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReservationController;
 
 
 
@@ -15,6 +16,8 @@ Route::group(["middleware" => "auth"],function(){
 
     Route::resource('post',PostController::class);
     Route::get('/post/delete/{post}',[PostController::class,'delete'])->name('post.delete');
+
+    Route::resource('reservation', ReservationController::class);
 });
 
 
