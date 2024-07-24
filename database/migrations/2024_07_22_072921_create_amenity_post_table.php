@@ -17,7 +17,7 @@ return new class extends Migration
 
 
             $table->foreign('amenity_id')->references('id')->on('amenities');
-            $table->foreign('post_id')->references('id')->on('amenities');
+            $table->foreign('post_id')->references('id')->on('posts');
         });
     }
 

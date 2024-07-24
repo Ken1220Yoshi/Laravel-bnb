@@ -4,15 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Amenity;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
+
+    private $post;
+
+    public function __construct(Post $post){
+        $this->post = $post;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
+
+        return view('users.home');
+
     }
 
     /**
@@ -21,6 +32,9 @@ class PostController extends Controller
     public function create()
     {
         //
+        $all_amenities = Amenity::latest()->get();
+        return view('post.create')->with('all_amenities',$all_amenities);
+
     }
 
     /**
@@ -29,6 +43,36 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $this->post->title = $request->title;
+        $this->post->price = $request->price;
+        $this->post->user_id = Auth::id();
+        $this->post->description = $request->description;
+        $this->post->save();
+
+        $amenity_post = [];
+
+        foreach($request->amenity as $amenity_id):
+            $amenity_post[] = ["amenity_id" => $amenity_id];
+        endforeach;
+
+
+
+        $this->post->amenityPost()->createMany($amenity_post);
+
+
+
+        // imageテーブルに保存
+        $images = [];
+        if($request->hasFile('images')){
+            foreach($request->file('images') as $image):
+                $image = 'data:image/'.$image->extension().';base64,'.base64_encode(file_get_contents($image));
+                $images[] = ['image' => $image];
+            endforeach;
+
+            $this->post->image()->createMany($images);
+        }
+
+        return redirect()->route('home');
     }
 
     /**
@@ -37,6 +81,9 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
+        return view('post.show')->with('post',$post);
+
+
     }
 
     /**
@@ -45,6 +92,7 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
+        return view('post.edit')->with('post',$post);
     }
 
     /**

@@ -1,0 +1,29 @@
+.image-home {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  border-radius: 5%;
+  display: block;
+}
+
+.image-container {
+  position: relative;
+  border: black;
+  height: 100%;
+  width: 100%;
+}
+
+.icon-md {
+  color: white; /* アイコンの中身の色 */
+  font-size: 1.5rem;
+}
+
+.like-form {
+  position: absolute;
+  top: 6%;
+  left: 81%;
+}
+
+.icon-sm {
+  font-size: 2rem;
+}
