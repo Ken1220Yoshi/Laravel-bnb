@@ -88,7 +88,9 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         //
-        return view('post.edit')->with('post',$post);
+        $all_amenities = Amenity::latest()->get();
+        return view('post.edit')->with('post',$post)
+                                ->with('all_amenities',$all_amenities);
     }
 
     /**
@@ -97,6 +99,36 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //
+        $post->title = $request->title;
+        $post->price = $request->price;
+        $post->description = $request->description;
+        
+
+        // imageテーブルに保存
+        $images = [];
+        if($request->hasFile('images')){
+            $post->images()->delete();
+            foreach($request->file('images') as $image):
+                $image = 'data:image/'.$image->extension().';base64,'.base64_encode(file_get_contents($image));
+                $images[] = ['image' => $image];
+            endforeach;
+
+            $post->images()->createMany($images);
+        }
+
+        $post->save();
+
+        $post->amenityPost()->delete();
+        $amenity_post = [];
+
+        foreach($request->amenity as $amenity_id):
+            $amenity_post[] = ["amenity_id" => $amenity_id];
+        endforeach;
+
+        $post->amenityPost()->createMany($amenity_post);
+
+        return redirect()->route('post.show',$post);
+
     }
 
     /**
