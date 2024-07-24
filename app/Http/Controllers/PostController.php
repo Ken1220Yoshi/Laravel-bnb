@@ -55,7 +55,11 @@ class PostController extends Controller
             $amenity_post[] = ["amenity_id" => $amenity_id];
         endforeach;
 
+
+
         $this->post->amenityPost()->createMany($amenity_post);
+
+
 
         // imageテーブルに保存
         $images = [];
