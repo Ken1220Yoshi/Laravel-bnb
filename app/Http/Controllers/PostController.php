@@ -65,7 +65,7 @@ class PostController extends Controller
                 $images[] = ['image' => $image];
             endforeach;
 
-            $this->post->image()->createMany($images);
+            $this->post->images()->createMany($images);
         }
 
         return redirect()->route('home');
