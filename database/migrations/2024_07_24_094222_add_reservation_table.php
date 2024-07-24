@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('images', function (Blueprint $table) {
-            
-            $table->unsignedBigInteger('post_id');
-            $table->longText('image');
-            
-
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
+        //
+        Schema::table('reservations', function (Blueprint $table) {
+            //
+            $table->string('price');
         });
     }
 
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('images');
+        //
     }
 };
