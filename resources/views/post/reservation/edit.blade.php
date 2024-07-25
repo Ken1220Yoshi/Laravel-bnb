@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', 'Show post')
@@ -142,23 +143,6 @@
             </div>
         </div>
 
-        <div class="post_aminity mt-5">
-            <hr>
-            <h2 class="mb-3">Aminities and Facilities</h2>
-            <div class="row">
-                @if ($post->amenityPost->isNotEmpty())
-                    @foreach ($post->amenityPost as $amenity_post)
-                        <span class="h5 col-6 ">
-                            # {{ $amenity_post->amenity->name }}
-                        </span>
-                    @endforeach
-                @else
-                    <div class="badge bg-dark">
-                        # Uncategorized
-                    </div>
-                @endif
-            </div>
-        </div>
     </div>
 
 
