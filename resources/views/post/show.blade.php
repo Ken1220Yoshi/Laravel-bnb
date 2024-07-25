@@ -62,7 +62,7 @@
                             <h3 class="my-auto ms-3"><i class="fa-solid fa-star" style="color: gold"></i> Rating</h3>
                         </div>
                         <div class="col my-auto text-center">
-                            <h4 class="my-auto">4.55</h4>
+                            <h4 class="my-auto">{{$rate}}</h4>
                         </div>
                         <div class="col my-auto">
                            
@@ -73,7 +73,7 @@
                             <i class="fa-regular fa-star"></i>
                         </div>
                         <div class="col text-center border border-1 border-top-0 border-end-0 border-bottom-0 border-dark">
-                            <span class="fw-bold h4">100</span> 
+                            <span class="fw-bold h4">{{$num_review}}</span> 
                             <br>
                             <a href="" class="text-dark">Reviews</a>
                         </div>

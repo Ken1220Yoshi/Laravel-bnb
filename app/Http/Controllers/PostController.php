@@ -81,7 +81,17 @@ class PostController extends Controller
     public function show(Post $post)
     {
         //
-        return view('post.show')->with('post',$post);
+        $point = 0;
+        $num_review = count($post->review);
+        foreach($post->review as $review):
+            $point = $point + $review->rate;
+        endforeach;
+
+        $rate = $point / $num_review;
+
+        return view('post.show')->with('post',$post)
+                                ->with('rate',$rate)
+                                ->with('num_review',$num_review);
 
 
     }
