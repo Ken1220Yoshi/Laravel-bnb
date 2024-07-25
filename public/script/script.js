@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const numberOfGuests = parseInt(guestsInput.value, 10);
 
     // チェックイン日とチェックアウト日が正しいか確認
-    if (!isNaN(checkinDate) && !isNaN(checkoutDate)) {
+    if (!isNaN(checkinDate) && !isNaN(checkoutDate) && !isNaN(numberOfGuests)) {
       const diffTime = Math.abs(checkoutDate - checkinDate);
       const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
