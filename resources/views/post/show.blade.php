@@ -56,6 +56,29 @@
     <div class="post_content  ">
         <div class="row">
             <div class="col-8">
+                <div class="rate border border-1 rounded-2  p-3">
+                    <div class="row align-middle">
+                        <div class="col my-auto border border-1 border-top-0 border-start-0 border-bottom-0 border-dark">
+                            <h3 class="my-auto ms-3"><i class="fa-solid fa-star" style="color: gold"></i> Rating</h3>
+                        </div>
+                        <div class="col my-auto text-center">
+                            <h4 class="my-auto">4.55</h4>
+                        </div>
+                        <div class="col my-auto">
+                           
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                            <i class="fa-regular fa-star"></i>
+                        </div>
+                        <div class="col text-center border border-1 border-top-0 border-end-0 border-bottom-0 border-dark">
+                            <span class="fw-bold h4">100</span> 
+                            <br>
+                            <a href="" class="text-dark">Reviews</a>
+                        </div>
+                    </div>
+                </div>
                 <hr>
 
                 <div class="row px-3 align-items-center">
@@ -83,6 +106,7 @@
                 <div class="post_introduction">
                     {{ $post->description }}
                 </div>
+
 
                 <hr>
             </div>
@@ -161,6 +185,25 @@
                     </div>
                 @endif
             </div>
+        </div>
+        <hr>
+        <div class="comment">
+            <h1>Reviews</h1>
+            <!-- Modal trigger button -->
+            <button
+                type="button"
+                class="btn btn-success btn-lg"
+                data-bs-toggle="modal"
+                data-bs-target="#reviewModal_{{$post->id}}"
+            >
+                Please Review
+            </button>
+            @include('modal.add-review')
+            
+            
+            
+            
+            
         </div>
     </div>
 
