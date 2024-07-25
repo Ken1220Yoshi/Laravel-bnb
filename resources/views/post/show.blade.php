@@ -89,8 +89,11 @@
             <div class="col-4 mt-3">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h3><span class="fw-bold" id="price">${{ $post->price }}</span>/night</h3>
-                        <form action="" method="" id="reservation-form">
+
+                        <h3><span class="fw-bold" id="price">${{ $post->price }}</span>/泊</h3>
+                        <form action="{{route('reservation.store')}}" method="post" id="reservation-form">
+                            @csrf
+
                             <div class="mb-3">
                                 <div class="form-group mb-3">
                                     <label for="checkin" class="form-label fw-bold m-0">Check In Date</label>

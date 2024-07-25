@@ -9,7 +9,7 @@
             <hr>
         </div>
         <div class="body w-75 mx-auto">
-            <form action="{{route('post.update',$post)}}" method="post">
+            <form action="{{route('post.update',$post)}}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PATCH')
                 <div class="row mb-3">
