@@ -91,7 +91,7 @@ class ReservationController extends Controller
         //
     }
 
-    public function comfirm(Request $request)
+    public function confirm(Request $request)
     {
         $post = Post::findOrFail($request->post_id);
 

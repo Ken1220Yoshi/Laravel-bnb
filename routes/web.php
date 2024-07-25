@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -22,13 +23,15 @@ Route::group(["middleware" => "auth"],function(){
     Route::get('/post/delete/{post}',[PostController::class,'delete'])->name('post.delete');
 
     Route::resource('reservation', ReservationController::class);
-    Route::post('/reservation/comfirm',[ReservationController::class,'comfirm'])->name('reservation.comfirm');
+    Route::post('/reservation/confirm',[ReservationController::class,'comfirm'])->name('reservation.confirm');
 
     Route::resource('user',UserController::class);
 
 
 
     Route::resource('profile', ProfileController::class);
+
+    Route::resource('review',ReviewController::class);
 
 
 
