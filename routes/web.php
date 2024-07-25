@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ReservationController;
 
@@ -21,8 +22,11 @@ Route::group(["middleware" => "auth"],function(){
 
     Route::resource('reservation', ReservationController::class);
 
-
     Route::resource('user',UserController::class);
+
+
+    Route::resource('profile', ProfileController::class);
+
 
 });
 
