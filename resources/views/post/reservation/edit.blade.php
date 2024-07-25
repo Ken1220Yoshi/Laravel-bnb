@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('title', 'Show post')
@@ -89,11 +90,8 @@
             <div class="col-4 mt-3">
                 <div class="card shadow">
                     <div class="card-body">
-
-                        <h3><span class="fw-bold" id="price">${{ $post->price }}</span>/泊</h3>
-                        <form action="{{route('reservation.store')}}" method="post" id="reservation-form">
-                            @csrf
-
+                        <h3><span class="fw-bold" id="price">${{ $post->price }}</span>/night</h3>
+                        <form action="" method="" id="reservation-form">
                             <div class="mb-3">
                                 <div class="form-group mb-3">
                                     <label for="checkin" class="form-label fw-bold m-0">Check In Date</label>
@@ -145,23 +143,6 @@
             </div>
         </div>
 
-        <div class="post_aminity mt-5">
-            <hr>
-            <h2 class="mb-3">Aminities and Facilities</h2>
-            <div class="row">
-                @if ($post->amenityPost->isNotEmpty())
-                    @foreach ($post->amenityPost as $amenity_post)
-                        <span class="h5 col-6 ">
-                            # {{ $amenity_post->amenity->name }}
-                        </span>
-                    @endforeach
-                @else
-                    <div class="badge bg-dark">
-                        # Uncategorized
-                    </div>
-                @endif
-            </div>
-        </div>
     </div>
 
 
