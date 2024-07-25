@@ -28,6 +28,32 @@
 
 .icon-profile-lg {
   font-size: 15rem;
+
+  /* position: relative; */
+}
+
+.edit-btn-profile {
+  position: absolute;
+  top: 90%;
+  left: 16%;
+  z-index: 3;
+  border-radius: 40px;
+  font-size: 1.5rem;
+  border: black;
+
+}
+
+.about-you {
+  border: dashed;
+}
+
+.more-you {
+  border: dashed;
+}
+
+.icon-box {
+  position: relative;
+
 }
 
 .like-form {
@@ -63,4 +89,14 @@
 
 .create-profile {
   margin-top: 25vh;
+}
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* アイコンが左寄せのまま、文字が中央に配置されます */
+}
+
+.flex-center:hover {
+  background-color: #dcdcdc; /* ホバー時の背景色 */
+  color: #495057; /* ホバー時のテキスト色 */
 }
