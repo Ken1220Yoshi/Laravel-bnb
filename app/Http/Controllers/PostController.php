@@ -116,7 +116,7 @@ class PostController extends Controller
                 $image = 'data:image/'.$image->extension().';base64,'.base64_encode(file_get_contents($image));
                 $images[] = ['image' => $image];
             endforeach;
-
+            
             $post->images()->createMany($images);
         }
 

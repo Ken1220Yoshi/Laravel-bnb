@@ -21,6 +21,7 @@ class UserController extends Controller
         return view('users.show')->with('user', $user);
     }
 
+
     public function create(User $user)
     {
         return view('users.profile')->with('user', $user);
@@ -43,4 +44,5 @@ class UserController extends Controller
 
         return redirect()->back();
     }
+
 }
