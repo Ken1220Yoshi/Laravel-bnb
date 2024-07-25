@@ -23,7 +23,9 @@ Route::group(["middleware" => "auth"],function(){
 
     Route::resource('user',UserController::class);
 
+
     Route::resource('profile', ProfileController::class);
+
 });
 
 
