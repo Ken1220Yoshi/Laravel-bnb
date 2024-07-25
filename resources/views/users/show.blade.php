@@ -58,7 +58,7 @@
         <p class="text-muted h5 mb-5">
         Your Laravel-bnb profile is an important part of every reservation. Create yours to help other Hosts and guests get to know you.
         </p>
-        <a href="" class="btn btn-danger btn-lg">Create profile</a>
+        <a href="{{route('user.create', $user)}}" class="btn btn-danger btn-lg">Create profile</a>
 </div>
       </div>
       

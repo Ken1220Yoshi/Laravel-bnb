@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Reservation;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Post;
 
 class ReservationController extends Controller
 {
@@ -36,12 +38,18 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         //
+        $checkin = new DateTime($request->checkin);
+        $checkout = new DateTime($request->checkout);
+        $interval = $checkin->diff($checkout);
+        $days = $interval->days;
+        $total_price = $request->price * $request->guests * $days;
+
         $this->reservation->user_id = Auth::id();
         $this->reservation->post_id = $request->post_id;
         $this->reservation->check_in_date = $request->checkin;
         $this->reservation->check_out_date = $request->checkout;
         $this->reservation->guests = $request->guests;
-        $this->reservation->price = $request->price;
+        $this->reservation->price = $total_price;
         $this->reservation->save();
 
 
@@ -56,6 +64,7 @@ class ReservationController extends Controller
     public function show(Reservation $reservation)
     {
         //
+
     }
 
     /**
@@ -80,5 +89,13 @@ class ReservationController extends Controller
     public function destroy(Reservation $reservation)
     {
         //
+    }
+
+    public function comfirm(Request $request)
+    {
+        $post = Post::findOrFail($request->post_id);
+
+        return view('post.reservation.edit')->with('reservation',$request)
+                        ->with('post',$post);
     }
 }

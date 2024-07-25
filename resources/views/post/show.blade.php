@@ -4,21 +4,21 @@
 
 @section('content')
 
-    <div class="post container border border-1">
+    <div class="post container">
 
 
         <div class="post_header row mb-3">
             <div class="col">
                 <h1 class="fw-bold">{{ $post->title }}</h1>
             </div>
-            <div class="col-auto d-flex p-0">
+
+            <div class="col-auto text-end mt-2">
                 <button class="btn border border-1"><i class="fa-solid fa-share"></i>シェア</button>
                 <button class="btn border border-1 ms-2"><i class="fa-regular fa-heart"></i>保存</button>
-            </div>
-
-            <div class="col text-end mt-2">
-                <a href="{{route('post.edit',$post)}}" class="btn btn-warning text-light"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                <a href="{{route('post.delete',$post)}}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i> Delete</a>
+                <a href="{{ route('post.edit', $post) }}" class="btn btn-warning text-light"><i
+                        class="fa-solid fa-pen-to-square"></i> Edit</a>
+                <a href="{{ route('post.delete', $post) }}" class="btn btn-danger"><i class="fa-solid fa-trash-can"></i>
+                    Delete</a>
             </div>
 
         </div>
@@ -27,7 +27,7 @@
             <div class="row">
                 @foreach ($post->images as $index => $image)
                     @if ($index == 0)
-                        <div class="col-md-6 border border-danger" style="height: 480px; padding:10px;">
+                        <div class="col-md-6" style="height: 480px; padding:10px;">
                             <img src="{{ $image->image }}" class="img-fluid rounded" alt="Post Image"
                                 style="height: 100%; width: 100%; object-fit:cover">
                         </div>
@@ -53,13 +53,13 @@
     </div>
 
 
-    <div class="post_content border border-1 ">
+    <div class="post_content  ">
         <div class="row">
             <div class="col-8">
                 <hr>
 
                 <div class="row px-3 align-items-center">
-                    <div class="col-auto border border-1 p-0">
+                    <div class="col-auto  p-0">
                         @if ($post->user->avatar)
                             <div class="">
                                 <img src="{{ $post->user->avatar }}" alt="" class=""
@@ -90,7 +90,8 @@
                 <div class="card">
                     <div class="card-body">
                         <h3><span class="fw-bold" id="price">${{ $post->price }}</span>/泊</h3>
-                        <form action="" method="" id="reservation-form">
+                        <form action="{{route('reservation.store')}}" method="post" id="reservation-form">
+                            @csrf
                             <div class="mb-3">
                                 <div class="form-group">
                                     <label for="checkin">チェックイン日</label>
@@ -103,10 +104,10 @@
                                         placeholder="チェックアウト日を選択してください">
                                 </div>
                                 <div class="form-group">
-                                  <label for="guest" class="form-label fw-bold m-0">人数</label>
-                                  <input type="number" id="guests" name="guests" class="form-control ">
-                                  <input type="hidden" value="{{$post->id}}" name="post_id">
-                                  <input type="hidden" value="{{$post->price}}" name="price">
+                                    <label for="guest" class="form-label fw-bold m-0">人数</label>
+                                    <input type="number" id="guests" name="guests" class="form-control ">
+                                    <input type="hidden" value="{{ $post->id }}" name="post_id">
+                                    <input type="hidden" value="{{ $post->price }}" name="price">
                                 </div>
                             </div>
 
@@ -116,24 +117,26 @@
                             <span class="d-block my-3 text-center" style="opacity: 0.8;">まだ請求されません</span>
 
                             <div>
-                              <div class="row mb-3">
-                                <span class="col" id="stay-duration"></span>
-                                <span class="col-auto" id="stay-price"></span>
-                              </div>
-                              <div class="row mb-3">
-                                <span class="col" id="clean-name"></span>
-                                <span class="col-auto" id="clean-price"></span>
-                              </div>
+                                <div class="row mb-3">
+                                    <span class="col-auto border-bottom px-0 ms-2" id="stay-duration"
+                                        style="font-size:16px;"></span>
+                                    <span class="col text-end fw-bold" id="stay-price"></span>
+                                </div>
+                                <div class="row mb-3">
+                                    <span class="col-auto border-bottom px-0 ms-2" id="clean-name"
+                                        style="font-size:16px; "></span>
+                                    <span class="col text-end fw-bold" id="clean-price"></span>
+                                </div>
 
-                              <hr>
+                                <hr>
 
-                              <div>
-                                <span class="col">合計(税抜き)</span>
-                                <span class="col-auto" id="total-price"></span>
-                              </div>
+                                <div>
+                                    <span class="col">合計(税抜き)</span>
+                                    <span class="col-auto fw-bold" id="total-price"></span>
+                                </div>
 
-                              
-                          </div>
+
+                            </div>
 
                         </form>
                     </div>
@@ -143,11 +146,11 @@
 
         <div class="post_aminity mt-5">
             <hr>
-            <h2 class="mb-3">提供されるアミニティ・設備{{ $post->id }}</h2>
+            <h2 class="mb-3">提供されるアミニティ・設備</h2>
             <div class="row">
                 @if ($post->amenityPost->isNotEmpty())
                     @foreach ($post->amenityPost as $amenity_post)
-                        <span class="h5 col-6 border border-1">
+                        <span class="h5 col-6 ">
                             # {{ $amenity_post->amenity->name }}
                         </span>
                     @endforeach
